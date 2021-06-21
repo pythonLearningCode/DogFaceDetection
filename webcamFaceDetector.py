@@ -2,9 +2,10 @@ import cv2
 # openned camera
 camera = cv2.VideoCapture(0)
 
-detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+#detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 #detector = cv2.CascadeClassifier('dogscascade.xml')
 #haarcascade cat face needs to be used with 1.1
+detector = cv2.CascadeClassifier('mydogdetector.xml')
 
 # checking if camera is openned
 if not camera.isOpened():
@@ -19,7 +20,7 @@ while True:
         print("Can't receive frame (stream end?). Exiting ...")
         break
     # Our operations on the frame come here
-    bboxes = detector.detectMultiScale(frame)
+    bboxes = detector.detectMultiScale(frame, 6)
      
     for box in bboxes:
         x, y, width, height = box
