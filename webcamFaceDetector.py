@@ -4,6 +4,7 @@ camera = cv2.VideoCapture(0)
 
 detector = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 #detector = cv2.CascadeClassifier('dogscascade.xml')
+#haarcascade cat face needs to be used with 1.1
 
 # checking if camera is openned
 if not camera.isOpened():
